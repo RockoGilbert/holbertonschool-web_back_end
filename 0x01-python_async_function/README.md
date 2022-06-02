@@ -1,6 +1,6 @@
 # 0x01. Python - Async
 
-<img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2019/12/4aeaa9c3cb1f316c05c4.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20220602%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220602T144123Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=7a0a5ac09767508943e04be4c83933d88aed576b8cb40d7422e03637adb7bcaf">
+![Async](https://https://holbertonintranet.s3.amazonaws.com/uploads/medias/2019/12/4aeaa9c3cb1f316c05c4.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20220602%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220602T144123Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=7a0a5ac09767508943e04be4c83933d88aed576b8cb40d7422e03637adb7bcaf)
 
 ## Learning Objectives
 * At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
