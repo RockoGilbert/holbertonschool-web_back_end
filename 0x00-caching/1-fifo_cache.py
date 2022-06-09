@@ -1,32 +1,38 @@
-#!/usr/bin/env python3
-""" Python caching systems """
-
+#!/usr/bin/python3
+"""FIFOCache module
+"""
 from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    """ FIFO caching system """
+    """FIFOCache class
+    Args:
+        BaseCaching (class): Basic class for this class
+    """
 
     def __init__(self):
-        ''' Initialize class instance. '''
         super().__init__()
-        self.current_keys = []
-        # I didn't use line 13 initially. Explain in
-        #  lamens terms whats happening?
+        self.__keys = []
 
     def put(self, key, item):
-        """ Add an item in the cache """
-        if key is not None or item is not None:
+        """put item into cache_data with FIFO algorithm
+        Args:
+            key ([type]): key of dictionary
+            item ([type]): item to insert in dictionary
+        """
+        if len(self.cache_data) == self.MAX_ITEMS and key not in self.__keys:
+            discard = self.__keys.pop(0)
+            del self.cache_data[discard]
+            print('DISCARD: {}'.format(discard))
+        if key and item:
+            self.__keys.append(key)
             self.cache_data[key] = item
-            if key not in self.current_keys:
-                self.current_keys.append(key)
-            if len(self.current_keys) > BaseCaching.MAX_ITEMS:
-                discarded_key = self.current_keys.pop(0)
-                del self.cache_data[discarded_key]
-                print('DISCARD: {}'.format(discarded_key))
 
     def get(self, key):
-        """ Get an item by key """
-        return self.cache_data.get(key)
-        if key is not None or key not in self.cache_data:
+        """get value of cache_data dictionary
+        Args:
+            key ([type]): key to search into cache_data
+        """
+        if not key or key not in self.cache_data:
             return None
+        return self.cache_data[key]
