@@ -1,30 +1,47 @@
 #!/usr/bin/python3
-""" BaseCaching"""
+
+"""
+Module for LIFO Caching
+"""
 
 from base_caching import BaseCaching
 
 
 class LIFOCache(BaseCaching):
-    """LIFO cache system"""
+    """
+     inherits from BaseCaching and is a caching system
+    """
 
     def __init__(self):
-        """Initialize the LIFO cache"""
+        """
+        constructor
+        """
         super().__init__()
-        self.current_keys = []
+        self.all_keys = []
 
     def put(self, key, item):
-        """Add a key to the cache"""
-        if key is not None or item is not None:
-            self.cache_data[key] = item
-            if key not in self.current_keys:
-                self.current_keys.append(key)
-            else:
-                self.current_keys.append(
-                    self.current_keys.pop(self.current_keys.index(key)))
-            if len(self.current_keys) > BaseCaching.MAX_ITEMS:
-                discarded_key = self.current_keys.pop(-2)
-                del self.cache_data[discarded_key]
+        """
+        Must assign to the dictionary self.cache_data
+        the item value for the key key.
+        """
+
+        if key is None or item is None:
+            return
+
+        if len(self.cache_data) >= self.MAX_ITEMS:
+            to_discard = self.all_keys.pop()
+            print("DISCARD: {}".format(to_discard))
+            del self.cache_data[to_discard]
+
+        self.all_keys.append(key)
+        self.cache_data[key] = item
 
     def get(self, key):
-        """Get an item by the key"""
+        """
+        Must return the value in self.cache_data linked to key
+        """
+
+        if key is None or key not in self.cache_data:
+            return None
+
         return self.cache_data[key]
