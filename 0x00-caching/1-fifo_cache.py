@@ -11,7 +11,8 @@ class FIFOCache(BaseCaching):
         ''' Initialize class instance. '''
         super().__init__()
         self.current_keys = []
-        # I didn't use line 13 initially. Explain in lamens terms whats happening
+        # I didn't use line 13 initially. Explain in
+        #  lamens terms whats happening?
 
     def put(self, key, item):
         """ Add an item in the cache """
