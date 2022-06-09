@@ -18,13 +18,12 @@ class BasicCache(BaseCaching):
         """
         if key and item:
             self.cache_data[key] = item
-        
+
     def get(self, key):
         """Get a key/value pair from cache
         Args
-            key (str): Key/value pair        
+            key (str): Key/value pair
         """
         if not key or key not in self.cache_data:
             return None
         return self.cache_data[key]
-            
