@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """The function returns a tuple of size
 2 containing a start index and end index"""
 from typing import Tuple
