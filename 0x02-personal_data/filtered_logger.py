@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-    PII_FIELDS - This is a tuple that holds any fields
+    PII_FIELDS - A tuple that holds any fields
     we want obfuscated from any actions visible to
     outside sources
 """
@@ -75,6 +75,7 @@ class RedactingFormatter(logging.Formatter):
         return filter_datum(self.fields, self.REDACTION,
                             str(record), self.SEPARATOR)
 
+
 if __name__ == '__main__':
     def main():
         """Summary"""
@@ -83,7 +84,7 @@ if __name__ == '__main__':
         query = ("SELECT * FROM users")
         db_cursor.execute(query)
         fields = []
-        
+
         for item in db_cursor.description:
             fields.append(str(item[0]))
 
