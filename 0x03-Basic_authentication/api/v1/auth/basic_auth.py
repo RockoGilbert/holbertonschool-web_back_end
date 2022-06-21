@@ -11,7 +11,7 @@ class BasicAuth(Auth):
     """Basic Authorization Class"""
     def extract_base64_authorization_header(
             self, authorization_header: str) -> str:
-        """Extract Authorization"""
+        """Extract the Authorization"""
 
         if (
             not authorization_header or type(authorization_header) != str
