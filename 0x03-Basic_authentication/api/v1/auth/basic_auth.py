@@ -8,5 +8,5 @@ from typing import TypeVar
 
 
 class BasicAuth(Auth):
-    """Basic Auth Class"""
+    """Basic Authorization Class"""
     pass
