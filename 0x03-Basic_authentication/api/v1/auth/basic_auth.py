@@ -10,19 +10,13 @@ from models.user import User
 
 class BasicAuth(Auth):
     """Basic Authorization Class"""
-    pass
-
-
-    def extract_base64_authorization_header(self, authorization_header: str) -> str:
+    def extract_base64_authorization_header(
+            self, authorization_header: str) -> str:
         """Extract Authorization"""
 
         if (
             not authorization_header or type(authorization_header) != str
-             or "Basic " not in authorization_header        
+            or "Basic " not in authorization_header
         ):
             return None
         return authorization_header.split()[1]
-
-
-
-
