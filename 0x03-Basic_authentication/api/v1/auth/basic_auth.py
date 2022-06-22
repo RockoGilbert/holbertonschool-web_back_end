@@ -58,3 +58,21 @@ class BasicAuth(Auth):
         credentials = decoded_base64_authorization_header.split(':', 1)
 
         return credentials[0], credentials[1]
+
+    def user_object_from_credentials(self,
+                                     user_email: str, user_pwd: str
+                                     ) -> TypeVar('User'):
+        """ User Object From Credentials """
+        if (
+            not user_email or type(user_email) != str
+            or not user_pwd or type(user_pwd) != str
+        ):
+            return None
+        try:
+            user = User.search({'email': user_email})
+        except Exception:
+            return None
+
+        if user and user[0].is_valid_password(user_pwd):
+            return user[0]
+        return None
