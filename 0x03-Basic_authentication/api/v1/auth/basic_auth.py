@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Creates a basic_Auth class that inherits from Auth"""
 
+from base64 import b64decode
 from api.v1.auth.auth import Auth
-import base64
 from models.user import User
-from typing import TypeVar
+from typing import Tuple, TypeVar
 
 
 class BasicAuth(Auth):
@@ -76,3 +76,29 @@ class BasicAuth(Auth):
         if user and user[0].is_valid_password(user_pwd):
             return user[0]
         return None
+
+    def current_user(self, request=None) -> TypeVar('User'):
+        """ overloads Auth and retrieves the User instance for a request """
+        auth_header = self.authorization_header(request)
+
+        if not auth_header:
+            return None
+
+        encoded = self.extract_base64_authorization_header(auth_header)
+
+        if not encoded:
+            return None
+
+        decoded = self.decode_base64_authorization_header(encoded)
+
+        if not decoded:
+            return None
+
+        email, pwd = self.extract_user_credentials(decoded)
+
+        if not email or not pwd:
+            return None
+
+        user = self.user_object_from_credentials(email, pwd)
+
+        return user
