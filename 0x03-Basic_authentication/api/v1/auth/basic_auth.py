@@ -8,7 +8,7 @@ from typing import TypeVar
 
 
 class BasicAuth(Auth):
-    """Basic Authorization Class"""
+    """Basic authorization Class"""
 
     def extract_base64_authorization_header(
             self, authorization_header: str) -> str:
