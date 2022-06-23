@@ -32,3 +32,4 @@ class Auth:
     def current_user(self, request=None) -> TypeVar('User'):
         """ placeholder """
         return None
+
