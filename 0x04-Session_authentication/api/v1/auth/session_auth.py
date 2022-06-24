@@ -19,3 +19,9 @@ class SessionAuth(Auth):
         session_id = str((uuid.uuid4()))
         self.user_id_by_session_id[session_id] = user_id
         return session_id
+
+    def user_id_for_session_id(self, session_id: str = None) -> str:
+        """Create an instance method"""
+        if session_id is None and type(session_id) != str:
+            return
+        return SessionAuth.user_id_by_session_id.get(session_id, None)
