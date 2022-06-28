@@ -3,6 +3,7 @@
 
 from auth import Auth
 from flask import Flask, jsonify, request, abort, redirect
+from sqlalchemy.orm.exc import NoResultFound
 
 
 # Authentication
@@ -33,5 +34,25 @@ def create():
         return jsonify({"message": "email already registered"}), 400
 
 
+@app.route('/reset_password', method="PUT")
+def update_password():
+    """Route"""
+
+    email = request.form.get("email")
+    reset_token = request.form.get("reset_token")
+    new_password = request.form.get("new_password")
+    try:
+        AUTH.update_password(reset_token, new_password)
+        return jsonify({"email": email, "message": "Password updated"}), 200
+    except ValueError:
+        abort(403)
+
+
+
+
+
+
+
+    {"email": "<user email>", "message": "Password updated"}, 200
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")
