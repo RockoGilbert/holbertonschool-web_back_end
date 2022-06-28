@@ -2,7 +2,7 @@
 """SQLAlchemy model for a database table"""
 
 from db import DB
-from User import user
+from user import User
 
 from sqlalchemy.ext.declarative import declarative_base 
 from sqlalchemy import Column, Integer, String, NoResultFound
@@ -11,7 +11,7 @@ Base = declarative_base()
 
 class User(Base):
     """User model"""
-    __tablename__ = 'user'
+    __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
     email = Column(String(250), nullable=False)
