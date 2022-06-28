@@ -2,7 +2,7 @@
 """SQLAlchemy model for a database table"""
 
 from db import DB
-from user import User
+from User import user
 
 from sqlalchemy.ext.declarative import declarative_base 
 from sqlalchemy import Column, Integer, String, NoResultFound
