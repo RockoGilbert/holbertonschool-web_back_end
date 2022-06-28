@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """SQLAlchemy model for a database table"""
 
-from sqlalchemy.ext.declarative import declarative_base 
-from sqlalchemy import Column, Integer, String
-base = declarative_base()
+from db import DB
+from user import User
 
-class User(base):
+from sqlalchemy.ext.declarative import declarative_base 
+from sqlalchemy import Column, Integer, String, NoResultFound
+
+Base = declarative_base()
+
+class User(Base):
     """User model"""
-    __tablename__ = 'users'
+    __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True)
     email = Column(String(250), nullable=False)
