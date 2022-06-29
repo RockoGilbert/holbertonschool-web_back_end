@@ -14,7 +14,7 @@ AUTH = Auth()
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET'], stict_slashes=False)
+@app.route('/', methods=['GET'], strict_slashes=False)
 def index():
     """Route handler"""
     return jsonify({"message": "Bienvenue"}), 200
@@ -34,9 +34,9 @@ def create():
         return jsonify({"message": "email already registered"}), 400
 
 
-@app.route('/reset_password', method="PUT")
+@app.route('/reset_password', methods=["PUT"])
 def update_password():
-    """Route"""
+    """Route to update password"""
 
     email = request.form.get("email")
     reset_token = request.form.get("reset_token")
@@ -48,6 +48,11 @@ def update_password():
         abort(403)
 
     {"email": "<user email>", "message": "Password updated"}, 200
+
+
+@app.route('/login', methods=['POST'])
+def login():
+    """Route to log user into email"""
 
 
 if __name__ == "__main__":
