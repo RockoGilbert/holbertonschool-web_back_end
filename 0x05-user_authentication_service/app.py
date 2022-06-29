@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-''' init flask app '''
+''' initiate flask app '''
 
-import email
 from flask import Flask, abort, jsonify, redirect, request
 from auth import Auth
 
