@@ -11,7 +11,7 @@ from user import Base, User
 
 
 class DB:
-    """DB class"""
+    """DB class that provides the skeleton"""
 
     def __init__(self) -> None:
         """Initialize a new DB instance"""
@@ -22,7 +22,7 @@ class DB:
 
     @property
     def _session(self) -> Session:
-        """Memorized session object"""
+        """Memorized a session object to run when needed"""
 
         if self.__session is None:
             DBSession = sessionmaker(bind=self._engine)
