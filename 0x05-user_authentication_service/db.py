@@ -1,8 +1,4 @@
 #!/usr/bin/env/ python3
-"""Complete DB class provided below to implement the add_user method."""
-"""DB module"""
-
-
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -11,6 +7,8 @@ from sqlalchemy.exc import InvalidRequestError
 from sqlalchemy.orm.exc import NoResultFound
 
 from user import Base, User
+"""Complete DB class provided below to implement the add_user method."""
+"""DB module"""
 
 
 class DB:
@@ -26,7 +24,7 @@ class DB:
     @property
     def _session(self) -> Session:
         """Memorized session object"""
-        
+
         if self.__session is None:
             DBSession = sessionmaker(bind=self._engine)
             self.__session = DBSession()
@@ -45,7 +43,7 @@ class DB:
 
     def find_user_by(self, **kwargs) -> User:
         """Find a user by a given key-value pair"""
-        
+
         if not kwargs:
             raise InvalidRequestError
         if not all(key in User.__table__.columns for key in kwargs):
@@ -57,7 +55,7 @@ class DB:
 
     def update_user(self, user_id: int, **kwargs) -> None:
         """Locates the user to update, then updates user’s
-        attributes    
+        attributes
         """
         user = self.find_user_by(id=user_id)
         for key, value in kwargs.items():
@@ -65,4 +63,3 @@ class DB:
                 raise ValueError
             setattr(user, key, value)
         self._session.commit()
-        
