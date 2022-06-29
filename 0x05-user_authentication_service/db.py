@@ -7,7 +7,7 @@ from sqlalchemy.exc import InvalidRequestError
 from sqlalchemy.orm.exc import NoResultFound
 
 from user import Base, User
-"""Complete DB class provided below to implement the add_user method."""
+"""Completes DB class provided below to implement the add_user method."""
 """DB module"""
 
 
