@@ -47,12 +47,8 @@ def update_password():
     except ValueError:
         abort(403)
 
-
-
-
-
-
-
     {"email": "<user email>", "message": "Password updated"}, 200
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")
