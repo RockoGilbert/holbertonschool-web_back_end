@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-"""
-Module for auth.py
-0x08. User authentication service
-Holberton Web Stack programming Spec ― Back-end
-"""
+"""Module for auth.py"""
 import bcrypt
 import uuid
 from user import User
