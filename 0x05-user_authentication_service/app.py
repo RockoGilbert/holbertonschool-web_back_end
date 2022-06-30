@@ -52,7 +52,7 @@ def login():
 
 @app.route('/sessions', methods=['DELETE'], strict_slashes=False)
 def logout():
-    """Route for logging out a user"""
+    """Route for logging out the user"""
     session_id = request.cookies.get('session_id')
     if not session_id or not AUTH.get_user_from_session_id(session_id):
         abort(403)
