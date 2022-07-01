@@ -54,8 +54,13 @@ def login():
 def logout():
     """Route for logging out the user"""
     session_id = request.cookies.get('session_id')
-    if not session_id or not AUTH.get_user_from_session_id(session_id):
+    user = AUTH.get_user_from_session_id(session_id)
+    if user and session_id:
+        AUTH.destroy_session(session_id)
+        return redirect('/')
+    else:
         abort(403)
+
 
     AUTH.destroy_session(session_id)
     return redirect('/')
