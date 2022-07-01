@@ -10,7 +10,7 @@ from user import Base, User
 
 
 class DB:
-    """DB class that provides the skeleton"""
+    """DB class that provides a the skeleton"""
 
     def __init__(self) -> None:
         """Initialize a new DB instance"""
