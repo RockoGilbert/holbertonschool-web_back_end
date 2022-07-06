@@ -21,24 +21,19 @@ class TestAccessNestedMap(unittest.TestCase):
         ({}, ("a",)),
         ({"a": 1}, ("a", "b"))
     ])
-
     def test_access_nested_map_exception(self, nested_map, path):
-         """
-         Test that an exception is raised when `callable` is called with
-         any positional or keyword arguments that are also passed to
-         `assertRaises()`.
-         The test passes if exception is raised, is an error if another
-         exception is raised, or fails if no exception is raised.
-         """
-         with self.assertRaises(KeyError) as exception_context_manager:
-             access_nested_map(nested_map, path)
+        """Test that an exception is raised"""
+        with self.assertRaises(KeyError) as exception_context_manager:
+            access_nested_map(nested_map, path)
 
     class TestMemoize(unittest.TestCase):
         """ Defines the TestMemoize Class """
+
     def test_memoize(self):
         """ Tests that `memoize` method works as expected """
         class TestClass:
             """ Defines the TestClass Class """
+
             def a_method(self):
                 """ Method that returns a numbers """
                 return 42
@@ -53,4 +48,3 @@ class TestAccessNestedMap(unittest.TestCase):
             test.a_property()
             test.a_property()
             mock_method.assert_called_once()
-    
