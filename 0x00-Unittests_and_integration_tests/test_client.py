@@ -73,12 +73,11 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
     def tearDownClass(cls):
         """ Class method for tearDown """
         cls.patcher.stop()
-    
-    @parameterized_class(("org_payload", "repos_payload", "expected_repos",
-                      "apache2_repos"), TEST_PAYLOAD)
 
+    @parameterized_class(("org_payload", "repos_payload", "expected_repos",
+                         "apache2_repos"), TEST_PAYLOAD)
     def test_public_repos(self):
-        """ Test method """
+        """Test method"""
         client = GithubOrgClient('google')
         result = client.public_repos()
         self.assertEqual(result, self.expected_repos)
