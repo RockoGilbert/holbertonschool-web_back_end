@@ -26,14 +26,12 @@ class TestAccessNestedMap(unittest.TestCase):
         with self.assertRaises(KeyError) as exception_context_manager:
             access_nested_map(nested_map, path)
 
-    class TestMemoize(unittest.TestCase):
-        """ Defines the TestMemoize Class """
-
+class TestMemoize(unittest.TestCase):
+    """ Defines the TestMemoize Class """
     def test_memoize(self):
         """ Tests that `memoize` method works as expected """
         class TestClass:
             """ Defines the TestClass Class """
-
             def a_method(self):
                 """ Method that returns a numbers """
                 return 42
@@ -48,3 +46,4 @@ class TestAccessNestedMap(unittest.TestCase):
             test.a_property()
             test.a_property()
             mock_method.assert_called_once()
+            
