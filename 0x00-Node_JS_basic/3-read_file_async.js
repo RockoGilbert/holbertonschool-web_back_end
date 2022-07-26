@@ -1,10 +1,10 @@
 // Read File
 
-const fs = require("fs");
+const fs = require('fs');
 
 function getStudents(lines) {
   return lines
-    .map((data) => data.split(","))
+    .map((data) => data.split(','))
     .filter((student) => /\w{3,}/.test(student[0]))
     .map((student) => ({
       firstName: student[0],
@@ -16,11 +16,11 @@ function getStudents(lines) {
 
 function getStudentsByField(students) {
   const csStudents = students
-    .filter((student) => student.field === "CS")
+    .filter((student) => student.field === 'CS')
     .map((student) => student.firstName);
 
   const sweStudents = students
-    .filter((student) => student.field === "SWE")
+    .filter((student) => student.field === 'SWE')
     .map((student) => student.firstName);
 
   return [csStudents, sweStudents];
@@ -28,10 +28,10 @@ function getStudentsByField(students) {
 
 module.exports = async function countStudents(path) {
   if (!fs.existsSync(path)) {
-    throw new Error("Cannot load the database");
+    throw new Error('Cannot load the database');
   }
-  const data = fs.readFileSync(path, { encoding: "utf8", flag: "r" });
-  const lines = data.split("\n").slice(1);
+  const data = fs.readFileSync(path, { encoding: 'utf8', flag: 'r' });
+  const lines = data.split('\n').slice(1);
 
   const students = await getStudents(lines);
   const [studentsByCS, studentsBySWE] = await getStudentsByField(students);
@@ -40,12 +40,12 @@ module.exports = async function countStudents(path) {
   console.log(
     `Number of students in CS: ${
       studentsByCS.length
-    }. List: ${studentsByCS.join(", ")}`
+    }. List: ${studentsByCS.join(', ')}`
   );
   console.log(
     `Number of students in SWE: ${
       studentsBySWE.length
-    }. List: ${studentsBySWE.join(", ")}`
+    }. List: ${studentsBySWE.join(', ')}`
   );
 
   return { students, studentsByCS, studentsBySWE };
