@@ -1,13 +1,10 @@
-const http = require("http"); 
-const host = 'localhost';
-const port = 8000;
+// Create a small HTTP server using Node's HTTP module
+const http = require('http');
 
-const requestListener = function(req, res, next) {
-  res.writeHead(200);
-  res.end("Hello Holberton School!")
-}
+const app = http
+  .createServer((req, res) => {
+    res.end('Hello Holberton School!');
+  })
+  .listen(1245);
 
-const server = http.createServer(requestListener);
-server.listen(port, host, () => {
-  console.log(`Server is running on http://${host}:${port}`);
-});
+module.exports = app;
