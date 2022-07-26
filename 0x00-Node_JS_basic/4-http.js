@@ -1,4 +1,4 @@
-// Create a small HTTP server using Node's HTTP module
+// Created a small HTTP server using Node's HTTP module
 const http = require('http');
 
 const app = http
