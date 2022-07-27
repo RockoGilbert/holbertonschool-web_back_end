@@ -1,4 +1,4 @@
-// Read File
+// Read File to create a function
 
 const fs = require('fs');
 
