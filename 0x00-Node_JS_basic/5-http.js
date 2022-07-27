@@ -1,22 +1,23 @@
-const http =  require('http');
-const countStudents = require("./3-read_file_async.js");
- 
+const http = require('http');
+const countStudents = require('./3-read_file_async.js');
+
 const app = http.createServer(async (req, res) => {
-  if (req.url === "/") {
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.write("Hello Holberton School!");
+  if (req.url === '/') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('Hello Holberton School!');
   }
 
-  if (req.url === "/students") {
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.write("This is the list of our students\n");
+  if (req.url === '/students') {
+    res.write('This is the list of our students\n');
     try {
-      await countStudent(process.argv[2]);
-      console.log(countStudent(process.argv[2]));
-      res.end(`${countStudent(process.argv[2]).join('\n')}`)
-      
+      await countStudents(process.argv[2]);
+      console.log(countStudents(process.argv[2]));
+      res.end(`${countStudents(process.argv[2]).join('\n')}`);
+
     } catch (error) {
+      
       res.end(error.message);
+
     }
   }
   res.end();
