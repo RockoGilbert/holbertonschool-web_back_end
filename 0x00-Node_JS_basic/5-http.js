@@ -13,11 +13,8 @@ const app = http.createServer(async (req, res) => {
       await countStudents(process.argv[2]);
       console.log(countStudents(process.argv[2]));
       res.end(`${countStudents(process.argv[2]).join('\n')}`);
-
     } catch (error) {
-      
       res.end(error.message);
-
     }
   }
   res.end();
