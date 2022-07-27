@@ -10,8 +10,8 @@ const app = http.createServer(async (req, res) => {
     res.write('This is the list of our students\n');
     try {
       //  const data = fs.readFileSync('3-read_file_async.js', 'utf-8',);
-       
-      countStudents('database.csv')
+
+      countStudents('database.csv');
 
       // console.log(data)
       // res.end(`${students.join('\n')}`);
