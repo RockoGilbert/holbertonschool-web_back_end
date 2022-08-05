@@ -1,9 +1,9 @@
-// Create a function named calculateNumber. It should accepts two arguments (number) a and b
-// The function should round a and b and return the sum of it
+module.exports = function calculateNumber(a, b) {
+  const numA = Number(a);
+  const numB = Number(b);
 
-const calculateNumber = (a, b) => {
-  if (isNaN(a) || isNaN(b)) throw new TypeError("Argument is not a number");
-  return Math.round(a) + Math.round(b);
-};
+  if (Number.isNaN(numA) || Number.isNaN(numB))
+  throw TypeError;
 
-module.exports = calculateNumber;
+  return (Math.round(numA) + Math.round(numB));
+}
