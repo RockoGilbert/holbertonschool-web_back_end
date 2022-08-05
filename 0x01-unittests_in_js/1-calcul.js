@@ -1,18 +1,14 @@
-'use strict';
 const calculateNumber = (type, a, b) => {
-  switch (type) {
-    case 'SUM':
-      return Math.round(a) + Math.round(b);
-      break;
-    case 'SUBTRACT':
-      return Math.round(a) - Math.round(b);
-      break;
-    case 'DIVIDE':
-      if (Math.round(b) === 0) return 'Error';
+  if (isNaN(a) || isNaN(b)) throw new TypeError();
+  if (type === 'SUM') return Math.round(a) + Math.round(b);
+  if (type === 'SUBTRACT') return Math.round(a) - Math.round(b);
+  if (type === 'DIVIDE'){
+    if (Math.round(b) === 0) {
+      return 'Error';
+    } else {
       return Math.round(a) / Math.round(b);
-      break;
-    default:
-      break;
-  };
-}
+    }
+  }
+};
+
 module.exports = calculateNumber;
