@@ -1,27 +1,23 @@
-const sendPaymentRequestToApi = require('./4-payment');
-const Utils = require('./utils');
-const expect = require('chai').expect;
 const sinon = require('sinon');
+const sendPaymentRequestToApi = require("./3-payment");
 
 describe('sendPaymentRequestToApi', () => {
-  it('Make sure math for sendPaymentRequestToAPI is the same as calculateNumber', () => {
-    const spiedFunction = sinon.spy(Utils, 'calculateNumber');
-
-    sendPaymentRequestToApi(100, 20);
-
-    expect(spiedFunction.calledWith('SUM', 100, 20)).to.be.true;
-    spiedFunction.restore();
+  beforeEach(() => {
+    spy = sinon.spy(console, 'log');
+  });
+  afterEach(() => {
+    spy.restore();
   });
 
-  it('Using stub to test sendPaymentRequestToApi is correct', () => {
-    const stub = sinon.stub(Utils, 'calculateNumber').returns(10);
-    const spyFunction = sinon.spy(console, 'log');
-
+  it('Tests sendpaymentRequestToApi function', () => {
     sendPaymentRequestToApi(100, 20);
+    spy.calledWith('The total is: 120');
+    spy.calledOnce;
+  });
 
-    expect(spyFunction.calledWith('The total is: 10')).to.be.true;
-
-    stub.restore();
-    spyFunction.restore();
+  it('Tests sendpaymentRequestToApi function', () => {
+    sendPaymentRequestToApi(10, 10);
+    spy.calledWith('The total is: 20');
+    spy.calledOnce;
   });
 });
