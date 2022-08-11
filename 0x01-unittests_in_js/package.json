@@ -1,16 +1,16 @@
 {
-  "name": "0x13-unittests_in_js",
-  "version": "1.0.0",
+  "name": "0x01-unittest_js",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "",
   "scripts": {
-    "test": "mocha"
+      "test": "mocha"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "chai": "^4.3.4",
-    "mocha": "^10.0.0",
-    "sinon": "^11.1.2"
+  "dependencies": {
+      "chai": "^3.5.0",
+      "mocha": "^10.0.0",
+      "sinon": "^14.0.0"
   }
 }
