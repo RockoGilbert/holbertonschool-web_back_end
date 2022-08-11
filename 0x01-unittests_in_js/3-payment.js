@@ -1,4 +1,4 @@
-// Added suite to the api
+// Added function to the api
 const Utils = require('./utils.js');
 
 function sendPaymentRequestToApi(totalAmount, totalShipping) {
