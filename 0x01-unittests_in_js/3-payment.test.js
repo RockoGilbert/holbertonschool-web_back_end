@@ -9,7 +9,7 @@ describe('sendPaymentRequestToApi', () => {
 
     sendPaymentRequestToApi(100, 20);
 
-    expect(spiedFunction.calledWith('SUM', 100, 20)).to.be.true;
+    expect(spiedFunction.calledWith("sum", 100, 20)).to.be.true;
     spiedFunction.restore();
   });
 });
