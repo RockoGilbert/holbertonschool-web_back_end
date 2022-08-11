@@ -1,3 +1,5 @@
+//.Payment addition
+
 const sendPaymentRequestToApi = require('./3-payment');
 const Utils = require('./utils');
 const expect = require('chai').expect;

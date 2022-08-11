@@ -1,4 +1,4 @@
-// Utils payment module
+// Utils payment
 const Utils = require('./utils');
 
 const sendPaymentRequestToApi = (totalAmount, totalShipping) => {
