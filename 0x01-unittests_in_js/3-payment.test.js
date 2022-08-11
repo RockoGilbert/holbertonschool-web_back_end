@@ -1,4 +1,4 @@
-//Test Payment 
+//Test Payments
 const sinon = require('sinon');
 var { expect } = require('chai');
 
