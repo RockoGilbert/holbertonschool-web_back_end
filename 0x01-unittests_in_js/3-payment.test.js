@@ -1,22 +1,14 @@
-const { expect } = require('chai');
+const sendPaymentRequestToAPI = require('./3-payment');
+const Utils = require('./utils');
 const sinon = require('sinon');
-const { spy } = require('sinon');
+const { expect } = require('chai');
 
-const sendPaymentRequestToApi = require('./3-payment');
-const utils = require('./utils');
-
-describe('sendPaymentRequestToApi', () => {
-  it('sendPaymentRequestToApi(100, 20) is the same Utils.calculateNumber(\'SUM\', 100, 20)', () => {
-    const functionSpy = sinon.spy(utils, 'calculateNumber');
-    const consoleSpy = sinon.spy(console, 'log');
-
-    const apiRequest = sendPaymentRequestToApi(100, 20);
-
-    expect(functionSpy.calledOnceWithExactly('SUM', 100, 20)).to.equal(true);
-    expect(consoleSpy.calledWithExactly('The total is: 120')).to.equal(true);
-    expect(utils.calculateNumber('SUM', 100, 20)).to.equal(apiRequest);
-
-    functionSpy.restore();
-    consoleSpy.restore();
-  });
+describe('Test suite', () => {
+  it('Test that sendPaymentRequestToAPI sums two rounded numbers', () => {
+    const spy = sinon.spy(Utils, 'calculateNumber');
+    sendPaymentRequestToAPI(1, 2);
+    expect(spy.calledOnce).to.be.true;
+    expect(spy.calledWith('SUM', 1, 2)).to.be.true;
+    spy.restore();
+  })
 });
