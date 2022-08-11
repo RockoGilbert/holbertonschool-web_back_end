@@ -37,7 +37,7 @@ describe('Index page', () => {
     request('http://localhost:7865/available_payments', (error, response, body) => {
       if (response) {
         expect(response.statusCode).to.equal(200);
-        expect(JSON.parse(body)).to.eql({ payment_methods: { credit_cards: true, paypal: false } });
+        expect(JSON.parse(body)).to.equal({ payment_methods: { credit_cards: true, paypal: false } });
         done();
       }
     });
