@@ -1,21 +1,16 @@
-//Test Payments
-const sinon = require('sinon');
-var { expect } = require('chai');
-
+// Log info through Sinon library
 const sendPaymentRequestToApi = require('./3-payment');
 const Utils = require('./utils');
+const expect = require('chai').expect;
+const sinon = require('sinon');
 
-describe('Spies', function () {
-  it('has the same math', () => {
-    const spyUtils = sinon.spy(Utils, 'calculateNumber');
-    const spyConsole = sinon.spy(console, 'log');
+describe('sendPaymentRequestToApi', () => {
+  it('Make sure math for sendPaymentRequestToAPI is the same as calculateNumber', () => {
+    const spiedFunction = sinon.spy(Utils, 'calculateNumber');
 
     sendPaymentRequestToApi(100, 20);
 
-    expect(spyUtils.calledOnceWithExactly('SUM', 100, 20)).to.be.true;
-    expect(spyConsole.calledOnceWithExactly('The total is: 120')).to.be.true;
-
-    spyUtils.restore();
-    spyConsole.restore();
+    expect(spiedFunction.calledWith('SUM', 100, 20)).to.be.true;
+    spiedFunction.restore();
   });
 });

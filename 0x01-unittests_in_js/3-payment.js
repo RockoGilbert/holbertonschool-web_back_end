@@ -1,5 +1,5 @@
-// Added a new suite to the api
-const Utils = require('./utils');
+// Added suite to the api
+const Utils = require('./utils.js');
 
 function sendPaymentRequestToApi(totalAmount, totalShipping) {
   const result = Utils.calculateNumber('SUM', totalAmount, totalShipping);
