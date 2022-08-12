@@ -1,4 +1,4 @@
-//Created one suite for the index page:
+//Create one suite for the index page:
 
 const {expect} = require('chai');
 const request = require("request");
